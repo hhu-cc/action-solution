@@ -1,0 +1,600 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>王总家庭保障规划建议书 · SuperDesign B</title>
+  <style>
+    :root {
+      --bg-dark: #07101d;
+      --bg-dark-2: #0c1627;
+      --paper: #f7f2e8;
+      --paper-2: #efe6d8;
+      --ink: #201710;
+      --ink-soft: #4f463f;
+      --muted: #93a2bd;
+      --line-dark: rgba(255,255,255,.10);
+      --line-light: rgba(32,23,16,.10);
+      --accent-purple: #8b5cf6;
+      --accent-teal: #14b8a6;
+      --accent-gold: #8c6f4c;
+      --radius: 26px;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 28px 18px 64px;
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(84, 67, 180, 0.16), transparent 28%),
+        linear-gradient(180deg, #06101c 0%, #08121f 100%);
+      color: #f8fafc;
+    }
+
+    .deck {
+      width: min(1440px, 100%);
+      margin: 0 auto;
+      display: grid;
+      gap: 24px;
+    }
+
+    .page {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      min-height: 760px;
+      border-radius: 28px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 28px 70px rgba(0,0,0,.28);
+      border: 1px solid rgba(255,255,255,.08);
+      padding: 34px 38px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .page.dark {
+      background: linear-gradient(135deg, rgba(9,19,34,.97), rgba(14,24,42,.94));
+      color: #f8fafc;
+    }
+
+    .page.light {
+      background: linear-gradient(180deg, var(--paper) 0%, #f4efe6 100%);
+      color: var(--ink);
+      border-color: rgba(32,23,16,.08);
+    }
+
+    .page.dark::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(255,255,255,.03) 1px, transparent 1px);
+      background-size: 72px 72px;
+      mask-image: linear-gradient(180deg, rgba(255,255,255,.32), transparent 72%);
+      pointer-events: none;
+    }
+
+    .topbar, .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+      font-size: 12px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    .dark .topbar, .dark .footer { color: rgba(226,232,240,.70); }
+    .light .topbar, .light .footer { color: rgba(79,70,63,.60); }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      flex: 1;
+      padding: 18px 0;
+    }
+
+    .eyebrow {
+      font-size: 12px;
+      letter-spacing: .17em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .dark .eyebrow { color: rgba(191,219,254,.76); }
+    .light .eyebrow { color: #8c6f4c; }
+
+    h1, h2, h3, p { margin: 0; }
+    h1 {
+      font-size: 66px;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      font-weight: 700;
+      max-width: 760px;
+    }
+    h2 {
+      font-size: 38px;
+      line-height: 1.14;
+      letter-spacing: -0.03em;
+      font-weight: 700;
+      max-width: 980px;
+    }
+    h3 {
+      font-size: 26px;
+      line-height: 1.24;
+      letter-spacing: -0.02em;
+      font-weight: 650;
+    }
+    .light h3.serif, .panel .headline {
+      font-family: Georgia, "Times New Roman", serif;
+      letter-spacing: -0.03em;
+    }
+
+    .sub {
+      max-width: 760px;
+      font-size: 20px;
+      line-height: 1.78;
+    }
+    .dark .sub { color: rgba(226,232,240,.82); }
+    .light .sub { color: var(--ink-soft); }
+
+    .accent-line {
+      width: 120px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent-purple), var(--accent-teal));
+      border-radius: 999px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.22fr 0.78fr;
+      gap: 30px;
+      flex: 1;
+      align-items: stretch;
+    }
+    .hero {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
+    }
+    .hero-right {
+      display: flex;
+      align-items: end;
+      justify-content: end;
+    }
+
+    .panel, .card, .phase, .note-item {
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .panel {
+      width: 100%;
+      max-width: 430px;
+      background: rgba(248,245,239,.95);
+      color: var(--ink);
+      border: 1px solid rgba(255,255,255,.22);
+      box-shadow: 0 22px 60px rgba(0,0,0,.22);
+      padding: 28px 28px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .panel .mini, .mini {
+      color: var(--accent-gold);
+      font-size: 12px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    .panel .headline { font-size: 34px; line-height: 1.2; }
+    .metric {
+      font-size: 54px;
+      line-height: 1;
+      font-weight: 700;
+      letter-spacing: -0.05em;
+    }
+
+    .panel p, .light .body, .light li {
+      color: var(--ink-soft);
+      font-size: 16px;
+      line-height: 1.8;
+    }
+    .dark .body { color: rgba(226,232,240,.82); font-size: 16px; line-height: 1.8; }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .chip {
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+    }
+    .dark .chip { background: rgba(255,255,255,.08); color: #d7def0; }
+    .light .chip, .panel .chip {
+      background: rgba(157,122,77,.10);
+      color: #7a6244;
+      border: 1px solid rgba(157,122,77,.08);
+    }
+
+    .split-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      flex: 1;
+    }
+
+    .note-item {
+      background: rgba(255,255,255,.42);
+      border: 1px solid var(--line-light);
+      padding: 24px 24px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .cards-3, .phases-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      flex: 1;
+    }
+
+    .card {
+      padding: 22px 20px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      border: 1px solid var(--line-light);
+      background: rgba(255,255,255,.38);
+    }
+    .card.primary {
+      background: linear-gradient(180deg, rgba(19,28,46,.96), rgba(12,19,31,.98));
+      border: 1px solid rgba(139,92,246,.24);
+      color: #f8fafc;
+      box-shadow: 0 16px 40px rgba(11, 16, 29, .16);
+    }
+    .card.primary .mini { color: rgba(191,219,254,.72); }
+    .card.primary .body, .card.primary .tail { color: rgba(226,232,240,.82); }
+    .tail {
+      margin-top: auto;
+      padding-top: 12px;
+      border-top: 1px solid rgba(32,23,16,.08);
+      color: #6f645a;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+    .card.primary .tail { border-top-color: rgba(255,255,255,.10); }
+
+    .phases-3 {
+      position: relative;
+      align-items: stretch;
+    }
+    .phase {
+      background: rgba(255,255,255,.38);
+      border: 1px solid var(--line-light);
+      padding: 24px 20px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      position: relative;
+    }
+    .phase::before {
+      content: "";
+      position: absolute;
+      top: 18px;
+      left: 20px;
+      width: 34px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent-purple), var(--accent-teal));
+      border-radius: 999px;
+    }
+    .phase .mini { padding-top: 10px; }
+
+    .fit-layout {
+      display: grid;
+      grid-template-columns: .95fr 1.05fr;
+      gap: 22px;
+      flex: 1;
+    }
+    .fit-panel {
+      background: rgba(255,255,255,.42);
+      border: 1px solid var(--line-light);
+      border-radius: var(--radius);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .fit-list {
+      display: grid;
+      gap: 12px;
+      align-content: start;
+    }
+    .fit-row {
+      background: rgba(19,28,46,.96);
+      color: #f8fafc;
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 22px;
+      padding: 16px 18px;
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 12px;
+    }
+    .fit-row .no { color: rgba(191,219,254,.76); font-size: 14px; }
+    .fit-row p { color: rgba(226,232,240,.82); font-size: 15px; line-height: 1.72; }
+
+    .closing-layout {
+      display: grid;
+      grid-template-columns: 1.35fr .65fr;
+      gap: 22px;
+      flex: 1;
+    }
+    .closing-note {
+      background: linear-gradient(180deg, rgba(12,22,39,.96), rgba(9,17,29,.98));
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius);
+      padding: 26px 24px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .closing-note h3 { color: #f8fafc; }
+    .closing-note p { color: rgba(226,232,240,.82); font-size: 16px; line-height: 1.8; }
+
+    .disclaimer-list {
+      display: grid;
+      gap: 12px;
+      align-content: start;
+    }
+    .disclaimer-list .card { min-height: 110px; }
+
+    ul.clean {
+      margin: 0;
+      padding-left: 18px;
+      display: grid;
+      gap: 10px;
+    }
+
+    @media (max-width: 1100px) {
+      body { padding: 12px 8px 32px; }
+      .page { aspect-ratio: auto; min-height: auto; padding: 24px 20px; }
+      .hero-grid, .split-2, .cards-3, .phases-3, .fit-layout, .closing-layout { grid-template-columns: 1fr; }
+      h1 { font-size: 46px; }
+      h2 { font-size: 30px; }
+      .hero-right { justify-content: start; }
+    }
+
+    @media print {
+      body { padding: 0; background: #fff; }
+      .deck { gap: 0; }
+      .page {
+        page-break-after: always;
+        width: 100vw;
+        min-height: 100vh;
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="deck">
+    <section class="page dark">
+      <div class="topbar">
+        <div>Private Banking Minimal v2</div>
+        <div>SuperDesign B · Cover</div>
+      </div>
+      <div class="content">
+        <div class="hero-grid">
+          <div class="hero">
+            <div class="eyebrow">Executive Minimal + Modern Dark</div>
+            <div class="accent-line"></div>
+            <h1>王总家庭保障规划建议书</h1>
+            <p class="sub">以本人保障底盘为起点，逐步建立家庭层面的长期风险承接结构。先守住家庭责任核心，再进入更完整的延展安排。</p>
+          </div>
+          <div class="hero-right">
+            <aside class="panel">
+              <div class="mini">Boardroom / Client Meeting</div>
+              <h2 class="headline">最适合当前阶段的，是先本人、后家庭的推进顺序</h2>
+              <div class="metric">40</div>
+              <p>40 岁，已婚，1 名子女，当前暂无既有保单，年度预算约 10 万。本轮建议聚焦第一阶段保障底盘，后续再延展至家庭层面。</p>
+              <div class="chips">
+                <span class="chip">高净值客群</span>
+                <span class="chip">Private Banking</span>
+                <span class="chip">PPT-friendly</span>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <div>Client Proposal Draft</div>
+        <div>01</div>
+      </div>
+    </section>
+
+    <section class="page light">
+      <div class="topbar">
+        <div>Context</div>
+        <div>家庭责任位置</div>
+      </div>
+      <div class="content">
+        <div>
+          <div class="eyebrow">Family Context</div>
+          <h2>当前需要优先处理的，不是零散风险，而是家庭责任核心尚未进入正式保障结构</h2>
+        </div>
+        <div class="split-2">
+          <article class="note-item">
+            <div class="mini">Current Position</div>
+            <h3 class="serif">王总处于责任承担最集中的阶段</h3>
+            <p class="body">40 岁、已婚、育有子女，意味着其个人状态与家庭稳定性之间已有高度直接的联动关系。</p>
+            <div class="tail">在这一阶段，本人不只是家庭成员之一，更是责任结构中的关键节点。</div>
+          </article>
+          <article class="note-item">
+            <div class="mini">Planning Implication</div>
+            <h3 class="serif">本轮更适合先围绕本人建立第一层保障底盘</h3>
+            <p class="body">现阶段不宜把预算过早分散至多个目标，而应先围绕家庭责任核心完成基础保障结构。</p>
+            <div class="tail">先稳住主结构，再延展至家庭成员，路径更清晰，执行也更有效率。</div>
+          </article>
+        </div>
+      </div>
+      <div class="footer">
+        <div>Context Narrative</div>
+        <div>02</div>
+      </div>
+    </section>
+
+    <section class="page light">
+      <div class="topbar">
+        <div>Priority</div>
+        <div>本阶段规划重点</div>
+      </div>
+      <div class="content">
+        <div>
+          <div class="eyebrow">Priority Directions</div>
+          <h2>现阶段最重要的，不是增加复杂度，而是先明确顺序，建立足够稳健的保护结构</h2>
+        </div>
+        <div class="cards-3">
+          <article class="card">
+            <div class="mini">Direction 01</div>
+            <h3>优先锁定本人的可保条件</h3>
+            <p class="body">越早完成基础保障，越能保留核保条件与后续安排的主动权。</p>
+            <div class="tail">重点不只是现在能否配置，更在于未来是否仍有选择空间。</div>
+          </article>
+          <article class="card primary">
+            <div class="mini">Direction 02</div>
+            <h3>优先守住家庭连续性</h3>
+            <p class="body">需要优先保护的，并不只是某项费用，而是家庭生活秩序、现金流与未来安排的连续性。</p>
+            <div class="tail">这也是本轮规划最核心的判断中枢。</div>
+          </article>
+          <article class="card">
+            <div class="mini">Direction 03</div>
+            <h3>先建立主结构，再进入扩展安排</h3>
+            <p class="body">在基础保障尚未成型之前，过早分散预算，往往会削弱整体效率。</p>
+            <div class="tail">先搭主轴，再做家庭与长期安排，更符合成熟客户的规划顺序。</div>
+          </article>
+        </div>
+      </div>
+      <div class="footer">
+        <div>Priority Card Grid</div>
+        <div>03</div>
+      </div>
+    </section>
+
+    <section class="page light">
+      <div class="topbar">
+        <div>Path</div>
+        <div>建议推进路径</div>
+      </div>
+      <div class="content">
+        <div>
+          <div class="eyebrow">Recommendation Path</div>
+          <h2>更合适的做法，是按阶段推进：先完成核心保障，再逐步扩展至家庭与长期目标</h2>
+        </div>
+        <div class="phases-3">
+          <article class="phase">
+            <div class="mini">Phase 1</div>
+            <h3>建立本人保障底盘</h3>
+            <p class="body">优先处理重大医疗、重大疾病以及家庭责任期内的核心责任保障。</p>
+            <div class="tail">先解决最不能延后的问题。</div>
+          </article>
+          <article class="phase">
+            <div class="mini">Phase 2</div>
+            <h3>补足家庭保障结构</h3>
+            <p class="body">在本人基础层建立后，再逐步延展至配偶与子女，使家庭结构更完整。</p>
+            <div class="tail">从单点保护走向系统覆盖。</div>
+          </article>
+          <article class="phase">
+            <div class="mini">Phase 3</div>
+            <h3>衔接长期安排</h3>
+            <p class="body">待核心保障缺口被处理后，再进入教育储备、长期资金与更长期目标的讨论。</p>
+            <div class="tail">只有底盘稳定，后续安排才更容易持续。</div>
+          </article>
+        </div>
+      </div>
+      <div class="footer">
+        <div>Phased Execution</div>
+        <div>04</div>
+      </div>
+    </section>
+
+    <section class="page light">
+      <div class="topbar">
+        <div>Fit</div>
+        <div>适配性判断</div>
+      </div>
+      <div class="content">
+        <div>
+          <div class="eyebrow">Rationale / Fit</div>
+          <h2>这一路径更适合王总，不是因为追求复杂配置，而是因为它更贴合当前家庭阶段的责任结构</h2>
+        </div>
+        <div class="fit-layout">
+          <article class="fit-panel">
+            <div class="mini">Structure View</div>
+            <h3 class="serif">更适合当前阶段的，是“先稳住核心，再向外延展”的配置逻辑</h3>
+            <p class="body">在既有保障基础仍为空白的情况下，优先建立本人保障底盘，能够更高效率地守住家庭最关键的风险承接点。</p>
+            <div class="tail">这类路径通常更清晰、更容易执行，也更方便后续进入家庭层面的扩展。</div>
+          </article>
+          <div class="fit-list">
+            <div class="fit-row"><div class="no">01</div><p>40 岁、已婚、育有子女，规划顺序应优先考虑家庭连续性。</p></div>
+            <div class="fit-row"><div class="no">02</div><p>暂无既有保单，适合直接建立主结构，而非在旧结构上做修补。</p></div>
+            <div class="fit-row"><div class="no">03</div><p>约 10 万年度预算，具备完成第一阶段核心保障逻辑的执行基础。</p></div>
+            <div class="fit-row"><div class="no">04</div><p>先本人、后家庭的节奏，有助于为后续长期安排保留更大空间。</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <div>Rationale</div>
+        <div>05</div>
+      </div>
+    </section>
+
+    <section class="page dark">
+      <div class="topbar">
+        <div>Closing</div>
+        <div>结语与说明</div>
+      </div>
+      <div class="content">
+        <div>
+          <div class="eyebrow">Closing / Disclaimer</div>
+          <h2>一个稳妥的开始，不等于一次完成全部规划；但它会决定，后续每一步是否都能建立在更从容的基础之上</h2>
+        </div>
+        <div class="closing-layout">
+          <article class="closing-note">
+            <div class="mini" style="color: rgba(191,219,254,.72);">Closing Note</div>
+            <h3>先守住家庭责任核心，再逐步延展至更完整的长期安排</h3>
+            <p>对家庭责任阶段的客户而言，规划价值不在于配置得多复杂，而在于是否能把最关键的风险提前放入一套清晰、可执行、可持续的结构之中。</p>
+            <p>就王总当前阶段而言，更合适的起点，是先完成本人保障底盘的建立。</p>
+          </article>
+          <div class="disclaimer-list">
+            <div class="card">
+              <div class="mini">Note 01</div>
+              <p class="body">本建议书基于当前已掌握的信息形成，主要用于呈现现阶段规划逻辑与推进方向。</p>
+            </div>
+            <div class="card">
+              <div class="mini">Note 02</div>
+              <p class="body">最终方案仍需结合完整资料、产品条款、核保结果及正式文件后进一步确认。</p>
+            </div>
+            <div class="card">
+              <div class="mini">Note 03</div>
+              <p class="body">本文件不构成最终承保结论、法律意见、税务意见或收益承诺。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <div>Preliminary Planning Document</div>
+        <div>06</div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
