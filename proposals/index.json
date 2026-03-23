@@ -1,5 +1,14 @@
 [
   {
+    "proposal_id": "pb-20260323-lizong-family",
+    "title": "李总家庭保障正式方案",
+    "client_code": "20260323-lizong-family",
+    "design_style": "executive-minimal",
+    "status": "current",
+    "path": "/proposals/current/pb-20260323-lizong-family/",
+    "updated_at": "2026-03-23T02:40:07Z"
+  },
+  {
     "proposal_id": "pb-20260322-wangzong",
     "title": "王总家庭保障规划建议书",
     "client_code": "wangzong",

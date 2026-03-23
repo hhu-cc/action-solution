@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>李总家庭保障正式方案</title>
+  <style>
+    :root{
+      --bg:#f5f0e8;
+      --paper:#fbf8f2;
+      --paper2:#f7f2ea;
+      --line:rgba(108,88,63,.14);
+      --text:#2f2a24;
+      --muted:#73685d;
+      --accent:#8a6a46;
+      --accent2:#d8c2a1;
+      --good:#49634b;
+      --shadow:0 18px 56px rgba(71,53,34,.08);
+      --max:1220px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 0% 0%, rgba(216,194,161,.22), transparent 20%),
+        radial-gradient(circle at 100% 15%, rgba(138,106,70,.08), transparent 18%),
+        linear-gradient(180deg,#f8f4ed 0%, #f1ebe3 100%);
+      font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+      line-height:1.72;
+    }
+    h1,h2,h3,h4,p{margin:0}
+    h1,h2,h3,h4{font-family:"Times New Roman","Songti SC","STSong",serif;font-weight:600;letter-spacing:.02em}
+    .shell{max-width:var(--max);margin:0 auto;padding:24px 22px 80px}
+    .topbar{
+      position:sticky;top:10px;z-index:20;
+      display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;
+      padding:14px 18px;margin-bottom:24px;border-radius:18px;border:1px solid var(--line);
+      background:rgba(251,248,242,.76);backdrop-filter:blur(12px);box-shadow:var(--shadow);
+    }
+    .brand{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+    .nav{display:flex;gap:10px;flex-wrap:wrap}
+    .nav a{text-decoration:none;color:var(--muted);font-size:13px;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.72);border:1px solid rgba(108,88,63,.08)}
+    .page{min-height:88vh;display:flex;align-items:center;padding:40px 0;scroll-margin-top:88px}
+    .frame{
+      width:100%;padding:44px;border-radius:34px;position:relative;overflow:hidden;
+      border:1px solid var(--line);
+      background:linear-gradient(135deg, rgba(255,255,255,.82), rgba(247,242,234,.88));
+      box-shadow:var(--shadow);
+    }
+    .frame::after{content:"";position:absolute;right:-38px;top:-38px;width:190px;height:190px;border-radius:50%;background:radial-gradient(circle, rgba(138,106,70,.14), transparent 68%)}
+    .page-tag{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:999px;background:rgba(216,194,161,.18);color:var(--accent);font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:18px}
+    .hero h1{font-size:56px;line-height:1.08;max-width:780px}
+    .lead{max-width:760px;margin-top:18px;color:var(--muted);font-size:18px}
+    .grid-2,.grid-3,.grid-4,.hero-grid,.path-grid,.summary-grid{display:grid;gap:18px}
+    .hero-grid{grid-template-columns:1.15fr .85fr;margin-top:28px}
+    .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+    .path-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .summary-grid{grid-template-columns:1.08fr .92fr}
+    .card{padding:24px 22px;border-radius:22px;border:1px solid var(--line);background:rgba(255,255,255,.74);box-shadow:0 10px 30px rgba(71,53,34,.04)}
+    .meta-k,.mini-k{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+    .meta-v{font-size:18px;font-weight:600}
+    .hero-side{display:grid;gap:14px}
+    .hero-quote{padding:26px 24px;border-radius:24px;border:1px solid var(--line);background:linear-gradient(135deg, rgba(255,255,255,.84), rgba(244,236,226,.86));font-family:"Times New Roman","Songti SC",serif;font-size:30px;line-height:1.42}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:22px}
+    .section-head h2{font-size:36px;line-height:1.14}
+    .section-head p{max-width:560px;color:var(--muted);font-size:15px}
+    .risk-no{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(216,194,161,.24);color:var(--accent);font-weight:700;margin-bottom:14px}
+    .card h3{font-size:22px;margin-bottom:10px}
+    .card p,.card li{color:var(--muted)}
+    ul{padding-left:18px;margin:8px 0 0}
+    .quote-strip{padding:36px 30px;text-align:center;border-radius:28px;border:1px solid var(--line);background:linear-gradient(135deg, rgba(255,255,255,.82), rgba(245,238,229,.9));font-family:"Times New Roman","Songti SC",serif;font-size:34px;line-height:1.42}
+    .quote-strip small{display:block;margin-top:14px;font-size:15px;color:var(--muted);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif}
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(216,194,161,.18);color:var(--accent);font-size:12px;margin-bottom:14px}
+    .priority-card{min-height:234px;display:flex;flex-direction:column;justify-content:space-between}
+    .person-card{position:relative;overflow:hidden}
+    .person-card::before{content:"";position:absolute;right:-18px;bottom:-18px;width:96px;height:96px;border-radius:50%;background:radial-gradient(circle, rgba(138,106,70,.1), transparent 70%)}
+    .step{padding:24px 20px;border-radius:22px;background:rgba(255,255,255,.72);border:1px solid var(--line)}
+    .idx{font-size:12px;color:var(--accent);letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px}
+    .step h4{font-size:22px;margin-bottom:8px}
+    .budget-big{font-size:56px;line-height:1;color:var(--accent);margin:8px 0 14px;font-family:"Times New Roman",serif}
+    .bar-group{display:grid;gap:14px;margin-top:10px}
+    .bar-row span{display:flex;justify-content:space-between;margin-bottom:6px;color:var(--muted);font-size:14px}
+    .bar{height:10px;border-radius:999px;background:#e6ded2;overflow:hidden}
+    .bar i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--accent2),var(--accent))}
+    .tip{margin-top:18px;padding:16px 18px;border-radius:16px;border:1px dashed rgba(108,88,63,.22);color:var(--muted);font-size:14px}
+    .ok{color:var(--good);font-weight:600}
+    @media (max-width:980px){
+      .hero-grid,.grid-4,.grid-3,.grid-2,.path-grid,.summary-grid{grid-template-columns:1fr}
+      .section-head{display:block}.section-head p{margin-top:10px}
+      .frame{padding:26px}.hero h1{font-size:38px}.hero-quote,.quote-strip{font-size:24px}.page{min-height:auto;padding:20px 0}
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <div class="topbar">
+      <div class="brand">Executive Minimal · 家庭保障正式方案</div>
+      <div class="nav">
+        <a href="#cover">封面</a>
+        <a href="#context">客户背景</a>
+        <a href="#priorities">保障重点</a>
+        <a href="#path">配置路径</a>
+        <a href="#fit">预算与适配</a>
+        <a href="#closing">结论</a>
+      </div>
+    </div>
+
+    <section class="page" id="cover">
+      <div class="frame hero">
+        <div class="page-tag">Page 01 · Cover</div>
+        <h1>李总家庭保障正式方案</h1>
+        <p class="lead">本方案以“家庭保障优先、兼顾教育金准备”为核心判断：先把家庭现金流最怕被打断的风险垫稳，再在预算允许范围内预留教育金规划空间，适合作为正式会面展示版与后续投保沟通底稿。</p>
+        <div class="hero-grid">
+          <div class="grid-2">
+            <div class="card"><div class="meta-k">客户年龄</div><div class="meta-v">42 岁</div></div>
+            <div class="card"><div class="meta-k">家庭结构</div><div class="meta-v">已婚，1 个孩子</div></div>
+            <div class="card"><div class="meta-k">年预算</div><div class="meta-v">20 万元</div></div>
+            <div class="card"><div class="meta-k">健康状态</div><div class="meta-v">标准体</div></div>
+          </div>
+          <div class="hero-side">
+            <div class="hero-quote">先稳家庭底盘，<br/>再做教育准备。</div>
+            <div class="card">
+              <div class="mini-k">本次核心目标</div>
+              <p>不是追求产品堆叠，而是用一套清晰顺序，把医疗、重疾、责任与教育准备放进同一张家庭财务地图里。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="context">
+      <div class="frame">
+        <div class="page-tag">Page 02 · Context</div>
+        <div class="section-head">
+          <h2>当前家庭阶段的三类关键风险</h2>
+          <p>42 岁、已婚、有孩子，说明家庭责任仍在高承压阶段。这个时期更怕的不是单一支出，而是家庭现金流、照顾能力与教育安排被同时打断。</p>
+        </div>
+        <div class="grid-3">
+          <div class="card"><div class="risk-no">01</div><h3>大额医疗风险</h3><p>住院、手术、特药与长期康复支出会快速占用家庭流动资金，影响日常生活质量与长期财务安排。</p></div>
+          <div class="card"><div class="risk-no">02</div><h3>重大疾病与收入中断</h3><p>重疾风险带来的不只是医疗费，还有收入下降、康复休养与家庭照护成本上升。</p></div>
+          <div class="card"><div class="risk-no">03</div><h3>孩子教育持续性</h3><p>教育金诉求说明家庭已关注中长期责任，因此保障体系需要给教育准备留出稳定节奏，而不是被突发风险挤占。</p></div>
+        </div>
+        <div class="quote-strip" style="margin-top:20px">家庭保险真正要守住的，<br/>是生活秩序的连续性。 <small>先解决“万一发生大事怎么办”，教育准备才更容易走得稳。</small></div>
+      </div>
+    </section>
+
+    <section class="page" id="priorities">
+      <div class="frame">
+        <div class="page-tag">Page 03 · Priorities</div>
+        <div class="section-head">
+          <h2>本次方案的四层配置重点</h2>
+          <p>按照正式方案逻辑，优先级必须清楚：先保全家底盘，再保主要责任，再给孩子教育做可持续准备。</p>
+        </div>
+        <div class="grid-4">
+          <div class="card priority-card"><div><span class="pill">第一层</span><h3>医疗保障</h3><p>先覆盖住院、手术与大额医疗风险，这是家庭保障体系的底座。</p></div></div>
+          <div class="card priority-card"><div><span class="pill">第二层</span><h3>重大疾病保障</h3><p>补足疾病后的康复期现金流压力，让家庭不只“能报销”，还“能恢复”。</p></div></div>
+          <div class="card priority-card"><div><span class="pill">第三层</span><h3>家庭责任保障</h3><p>针对责任高峰阶段，重点覆盖主要收入承担者的极端风险影响。</p></div></div>
+          <div class="card priority-card"><div><span class="pill">第四层</span><h3>教育金准备</h3><p>在不牺牲底层保障完整性的前提下，预留并建立教育资金准备轨道。</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="path">
+      <div class="frame">
+        <div class="page-tag">Page 04 · Path</div>
+        <div class="section-head">
+          <h2>建议的家庭配置路径</h2>
+          <p>先后顺序比“买了多少”更重要。先把真正影响家庭稳定性的部分补齐，再把教育准备纳入长期节奏。</p>
+        </div>
+        <div class="grid-3">
+          <div class="card person-card"><h3>李总｜第一优先级</h3><p>建议优先完整配置：</p><ul><li>医疗保障</li><li>重大疾病保障</li><li>意外保障</li><li>家庭责任保障</li></ul></div>
+          <div class="card person-card"><h3>配偶｜第二优先级</h3><p>建议同步补齐：</p><ul><li>医疗保障</li><li>重大疾病保障</li><li>意外保障</li><li>视家庭分工补充责任保障</li></ul></div>
+          <div class="card person-card"><h3>孩子｜基础完整 + 教育衔接</h3><p>建议重点配置：</p><ul><li>医疗保障</li><li>少儿重疾保障</li><li>意外保障</li><li>后续衔接教育金准备</li></ul></div>
+        </div>
+        <div class="path-grid" style="margin-top:18px">
+          <div class="step"><div class="idx">Step 1</div><h4>先补全家医疗底盘</h4><p>让全家先具备应对大额医疗风险的基础能力，避免预算先被长期规划占满。</p></div>
+          <div class="step"><div class="idx">Step 2</div><h4>补大人重疾与责任</h4><p>先稳住家庭责任承担者，降低一旦患病或发生极端风险时的财务冲击。</p></div>
+          <div class="step"><div class="idx">Step 3</div><h4>建立教育金准备节奏</h4><p>在保障底盘完成后，用可持续的方式推进孩子教育金准备，避免本末倒置。</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="fit">
+      <div class="frame">
+        <div class="page-tag">Page 05 · Budget / Fit</div>
+        <div class="section-head">
+          <h2>20 万预算下，更适合“两段式”安排</h2>
+          <p>这类预算不算紧张，但也不建议一开始就把大量资金锁进长期储蓄。更稳的做法，是先完成家庭保障底盘，再把剩余预算用于教育金准备。</p>
+        </div>
+        <div class="summary-grid">
+          <div class="card">
+            <div class="mini-k">方案判断</div>
+            <div class="budget-big">保障优先<br/>兼顾教育</div>
+            <p>建议将预算先用于完成全家基础保障、李总夫妻核心风险保障与孩子健康保障；在此基础上，再配置教育金准备模块，形成“风险先行、长期随后”的家庭规划顺序。</p>
+            <div class="tip"><span class="ok">建议口径：</span> 当前阶段的重点不是追求收益展示，而是先让家庭在面对医疗和重大风险时不被迫动用教育准备金或长期资产。</div>
+          </div>
+          <div class="card">
+            <h3 style="margin-bottom:12px">预算关注重心</h3>
+            <div class="bar-group">
+              <div class="bar-row"><span><em>全家医疗底盘</em><em>优先最高</em></span><div class="bar"><i style="width:88%"></i></div></div>
+              <div class="bar-row"><span><em>李总夫妻重疾</em><em>重点补齐</em></span><div class="bar"><i style="width:82%"></i></div></div>
+              <div class="bar-row"><span><em>责任风险保障</em><em>李总优先</em></span><div class="bar"><i style="width:78%"></i></div></div>
+              <div class="bar-row"><span><em>教育金准备</em><em>第二阶段推进</em></span><div class="bar"><i style="width:56%"></i></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="grid-2" style="margin-top:18px">
+          <div class="card"><h3>为什么不是先重储蓄</h3><p>如果保障底盘还不完整，过早把预算锁进长期安排，遇到重疾或大额医疗时反而可能打乱原本的教育与财富节奏。</p></div>
+          <div class="card"><h3>为什么仍要兼顾教育金</h3><p>孩子教育是明确诉求，因此教育准备不能缺席，只是顺序应放在保障结构完成之后，以更可持续的方式推进。</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="closing">
+      <div class="frame">
+        <div class="page-tag">Page 06 · Closing</div>
+        <div class="section-head">
+          <h2>结论与下一步</h2>
+          <p>这是一份最小化但可正式会面使用的家庭保障方案：逻辑明确、顺序清晰、口径稳健，可直接进入后续产品筛选与保额细化阶段。</p>
+        </div>
+        <div class="quote-strip">先把家庭健康风险与责任风险稳住，<br/>再让教育准备走得更从容。 <small>这是当前阶段更适合李总家庭的正式配置方向。</small></div>
+        <div class="grid-2" style="margin-top:20px">
+          <div class="card"><h3>建议执行顺序</h3><p>先全家医疗；再补李总夫妻重疾与责任；随后完善孩子保障；最后建立教育金准备模块。</p></div>
+          <div class="card"><h3>建议下一次会面聚焦</h3><p>进入具体产品筛选、保额测算、责任范围确认、健康告知核验与教育金节奏设计。</p></div>
+        </div>
+        <div class="tip">说明：本 HTML 为正式展示版方案，不含具体产品名称、精确保额与费率结果；后续落地时仍需结合承保规则、健康告知、职业信息与实际产品责任进一步确认。</div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
