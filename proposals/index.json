@@ -1,5 +1,14 @@
 [
   {
+    "proposal_id": "chen-hk-bundle-20260324",
+    "title": "陈总家庭香港整体配置规划建议",
+    "client_code": "chen-hk-bundle",
+    "design_style": "executive-minimal",
+    "status": "current",
+    "path": "/proposals/current/chen-hk-bundle-20260324/",
+    "updated_at": "2026-03-23T22:39:23Z"
+  },
+  {
     "proposal_id": "pb-20260323-liuzong-health",
     "title": "刘总家庭健康保障方案",
     "client_code": "20260323-liuzong-health",
