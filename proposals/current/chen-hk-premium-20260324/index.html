@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>陈总家庭香港整体规划建议</title>
+  <style>
+    :root {
+      --bg: #f4efe8;
+      --paper: rgba(255,255,255,0.78);
+      --ink: #1d2733;
+      --muted: #66707d;
+      --accent: #a07f4e;
+      --line: rgba(29,39,51,0.12);
+      --deep: #152338;
+      --overlay: rgba(16,29,48,0.55);
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--ink); font-family: "SF Pro Display", "PingFang SC", "Noto Serif SC", "Microsoft YaHei", serif; }
+    body { line-height: 1.72; }
+    .page {
+      min-height: 100vh;
+      padding: 56px 72px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at top right, rgba(160,127,78,0.10), transparent 28%),
+        radial-gradient(circle at bottom left, rgba(21,35,56,0.08), transparent 24%),
+        linear-gradient(180deg, rgba(255,255,255,0.16), rgba(255,255,255,0.04));
+    }
+    .page.image-page::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: var(--bg-image);
+      background-size: cover;
+      background-position: center;
+      filter: saturate(0.88) contrast(0.98);
+      transform: scale(1.02);
+    }
+    .page.image-page::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(11,21,35,0.52), rgba(11,21,35,0.30));
+    }
+    .card {
+      width: min(1160px, 100%);
+      position: relative;
+      z-index: 1;
+      background: var(--paper);
+      border: 1px solid rgba(255,255,255,0.45);
+      border-radius: 28px;
+      backdrop-filter: blur(18px);
+      box-shadow: 0 24px 80px rgba(33, 29, 24, 0.12);
+      padding: 46px 52px;
+      overflow: hidden;
+    }
+    .card::before {
+      content: "";
+      position: absolute;
+      left: 0; right: 0; top: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent), rgba(160,127,78,0.18));
+    }
+    .hero-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.16);
+      box-shadow: none;
+      color: #fff;
+    }
+    .hero-card::before { background: linear-gradient(90deg, var(--accent), rgba(255,255,255,0.26)); }
+    .eyebrow {
+      font-size: 13px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+      font-family: "SF Pro Text", "PingFang SC", sans-serif;
+    }
+    .hero-card .eyebrow { color: rgba(255,255,255,0.82); }
+    h1,h2,h3,p { margin: 0; }
+    h1 { font-size: clamp(40px, 5.2vw, 64px); line-height: 1.12; font-weight: 600; letter-spacing: -0.03em; max-width: 900px; }
+    h2 { font-size: clamp(30px, 3.3vw, 42px); line-height: 1.18; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 18px; }
+    .lead { font-size: 20px; max-width: 780px; color: var(--muted); }
+    .hero-card .lead { color: rgba(255,255,255,0.82); }
+    .hero-grid, .grid-2, .grid-3, .grid-4 { display: grid; gap: 18px; }
+    .hero-grid { grid-template-columns: 1.3fr 0.85fr; align-items: end; margin-top: 10px; }
+    .grid-2 { grid-template-columns: repeat(2, 1fr); margin-top: 28px; }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); margin-top: 28px; }
+    .grid-4 { grid-template-columns: repeat(4, 1fr); margin-top: 28px; }
+    .panel, .tile, .step {
+      border-radius: 22px;
+      padding: 22px 22px 20px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.56);
+    }
+    .hero-panel {
+      border-radius: 24px;
+      padding: 26px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.16);
+    }
+    .hero-panel .k, .meta-strip .k { font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+    .hero-panel .v { font-size: 26px; line-height: 1.35; margin-top: 12px; }
+    .hero-panel .v, .hero-panel .k { color: #fff; }
+    .tile h3, .step h3 { font-size: 20px; margin-bottom: 10px; }
+    .tile p, .step p, .panel p { color: var(--muted); font-size: 15px; }
+    .big-quote {
+      margin-top: 28px;
+      padding: 22px 24px;
+      border-left: 3px solid var(--accent);
+      border-radius: 0 16px 16px 0;
+      background: rgba(160,127,78,0.08);
+      font-size: 21px;
+      line-height: 1.58;
+    }
+    .meta-strip {
+      margin-top: 26px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .meta-item {
+      padding: 18px 20px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.5);
+      border: 1px solid var(--line);
+    }
+    .meta-item .v { margin-top: 8px; font-size: 18px; }
+    .flow { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 28px; }
+    .step .no { color: var(--accent); font-size: 13px; letter-spacing: 0.13em; text-transform: uppercase; }
+    .footer-note { margin-top: 24px; color: var(--muted); font-size: 14px; }
+    .split {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 22px;
+      margin-top: 30px;
+      align-items: stretch;
+    }
+    .photo {
+      min-height: 360px;
+      border-radius: 26px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 18px 40px rgba(28, 31, 41, 0.14);
+    }
+    .photo::after {
+      content: "";
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(17,29,48,0.08), rgba(17,29,48,0.34));
+    }
+    .closing { text-align: center; }
+    .closing .big-quote { text-align: left; max-width: 860px; margin-inline: auto; }
+    .credit { margin-top: 18px; font-size: 12px; color: rgba(255,255,255,0.72); }
+    @media (max-width: 900px) {
+      .page { padding: 24px; min-height: auto; }
+      .card { padding: 28px 22px; border-radius: 20px; }
+      .hero-grid, .grid-2, .grid-3, .grid-4, .flow, .meta-strip, .split { grid-template-columns: 1fr; }
+      h1 { font-size: 34px; }
+      h2 { font-size: 28px; }
+      .lead { font-size: 17px; }
+    }
+  </style>
+</head>
+<body>
+  <section class="page image-page" style="--bg-image:url('https://images.unsplash.com/photo-1506973035872-a4f23ef4c43d?auto=format&fit=crop&w=1600&q=80');">
+    <div class="card hero-card">
+      <div class="eyebrow">Hong Kong Family Advisory Proposal</div>
+      <div class="hero-grid">
+        <div>
+          <h1>陈总家庭香港整体规划建议</h1>
+          <p class="lead" style="margin-top:18px;">围绕身份、教育、医疗与资产配置，呈现一条适合高净值家庭的香港整体路径。</p>
+          <div class="credit">Visual mood: Hong Kong skyline / city-life atmosphere</div>
+        </div>
+        <div class="hero-panel">
+          <div class="k">核心判断</div>
+          <div class="v">客户真正需要的，不是单点产品，而是一套能支撑家庭未来数年的香港路径。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="card">
+      <div class="eyebrow">Why Hong Kong</div>
+      <h2>为什么越来越多高净值家庭选择香港</h2>
+      <p class="lead">香港的价值，不在于解决一个单点问题，而在于它能够同时承接家庭身份、教育、医疗与资产安排等多个核心目标。</p>
+      <div class="grid-3">
+        <div class="tile"><h3>家庭平台</h3><p>香港不是单一教育或保险选择，而是家庭未来配置的平台型选项。</p></div>
+        <div class="tile"><h3>国际连接</h3><p>既保留文化与地理上的可接受距离，又具备高度国际化资源密度。</p></div>
+        <div class="tile"><h3>长期安排</h3><p>对企业主家庭而言，更适合把教育、生活、保障和资产放到同一张图里处理。</p></div>
+      </div>
+      <div class="big-quote">香港的吸引力，不是某一个工具，而是整条路径的综合价值。</div>
+    </div>
+  </section>
+
+  <section class="page image-page" style="--bg-image:url('https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=1600&q=80');">
+    <div class="card">
+      <div class="eyebrow">Integrated Advantages</div>
+      <h2>香港能够为家庭提供哪些核心优势</h2>
+      <p class="lead">从家庭长期安排的角度看，香港真正重要的不是“单项优势”，而是多维资源之间的联动能力。</p>
+      <div class="grid-4">
+        <div class="tile"><h3>身份</h3><p>为家庭预留更多生活、出行与长期安排的灵活性。</p></div>
+        <div class="tile"><h3>教育</h3><p>提供更国际化的成长环境与更多元的升学路径选择。</p></div>
+        <div class="tile"><h3>医疗</h3><p>具备成熟医疗体系与更完整的家庭健康保障承接能力。</p></div>
+        <div class="tile"><h3>配置</h3><p>拥有更丰富的保险与资产工具，适合教育金、保障与传承安排。</p></div>
+      </div>
+      <div class="big-quote">香港不是只解决教育或保险，而是同时提升家庭的整体选择空间。</div>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="card">
+      <div class="eyebrow">Family Fit</div>
+      <h2>为什么陈总家庭值得认真了解这条路径</h2>
+      <p class="lead">已知信息显示，这类需求并不是单点消费决策，而是典型的“家庭香港化配置”场景。</p>
+      <div class="meta-strip">
+        <div class="meta-item"><div class="k">客户画像</div><div class="v">45 岁企业主，更关注家庭长期安排与资产延展性。</div></div>
+        <div class="meta-item"><div class="k">教育窗口</div><div class="v">孩子 10 岁，正处于教育路径布局的重要时间点。</div></div>
+        <div class="meta-item"><div class="k">家庭目标</div><div class="v">希望一家人获得香港身份，并逐步配置部分资产。</div></div>
+      </div>
+      <div class="big-quote">陈总家庭的需求，与香港能够提供的身份、教育、医疗和配置资源匹配度很高。</div>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="card">
+      <div class="eyebrow">Path Framework</div>
+      <h2>陈总家庭可考虑的实现路径</h2>
+      <p class="lead">对这类家庭而言，较优的做法不是单点推进，而是把教育、身份与资产配置三条线同步设计。</p>
+      <div class="flow">
+        <div class="step"><div class="no">Path 01</div><h3>教育路径</h3><p>围绕孩子 10 岁这一窗口期，优先判断香港优质本地教育 / Band 1 路线、过渡学校路径或国际化路径的适配性。</p></div>
+        <div class="step"><div class="no">Path 02</div><h3>身份路径</h3><p>根据家庭成员背景与目标，综合评估高才、留学及其他人才类路径，形成适合一家人的安排节奏。</p></div>
+        <div class="step"><div class="no">Path 03</div><h3>配置路径</h3><p>将部分香港配置需求与保险、教育金、医疗保障及长期储备工具结合，逐步落地而非一次性完成。</p></div>
+      </div>
+      <div class="footer-note">实现方式不是单一答案，而是三条路径的组合与排序。</div>
+    </div>
+  </section>
+
+  <section class="page image-page" style="--bg-image:url('https://images.unsplash.com/photo-1526481280695-3c4693f8f8c3?auto=format&fit=crop&w=1600&q=80');">
+    <div class="card">
+      <div class="eyebrow">Early Planning</div>
+      <h2>越早规划，家庭的选择空间越大</h2>
+      <p class="lead">香港路径最大的优势之一，在于可以提前布局；而提前布局本身，往往就是高质量结果的重要来源。</p>
+      <div class="grid-2">
+        <div class="panel"><h3>为什么要早</h3><p>教育越早规划，孩子可选择的切入时间、学校路径与衔接方式通常越多；身份与资产也更容易按节奏配合家庭目标。</p></div>
+        <div class="panel"><h3>如何理解“早”</h3><p>不一定一开始就全部执行，但应尽早进入规划状态，让家庭拥有比较、筛选和分阶段推进的主动权。</p></div>
+      </div>
+      <div class="big-quote">很多家庭不是条件不够，而是开始得太晚。越早规划，未来越从容。</div>
+    </div>
+  </section>
+
+  <section class="page">
+    <div class="card">
+      <div class="eyebrow">Give & Get</div>
+      <h2>这条路径需要付出什么，又能得到什么</h2>
+      <div class="split">
+        <div>
+          <div class="panel" style="margin-bottom:18px;"><h3>需要付出</h3><p>时间投入、家庭协同、阶段性预算安排，以及对新教育与生活体系的适应。这些不是阻力，而是家庭进入更优路径前需要完成的准备动作。</p></div>
+          <div class="panel"><h3>最终得到</h3><p>孩子更丰富的成长与升学选择，一家人更多身份与生活弹性，以及更完整的医疗与保障结构；进一步还能实现部分资产的香港配置与长期安排。</p></div>
+        </div>
+        <div class="photo" style="background-image:url('https://images.unsplash.com/photo-1499092346589-b9b6be3e94b2?auto=format&fit=crop&w=1200&q=80');"></div>
+      </div>
+      <div class="big-quote">客户最终获得的，不是一个产品，而是一种更稳健、更有弹性的家庭未来安排。</div>
+    </div>
+  </section>
+
+  <section class="page closing image-page" style="--bg-image:url('https://images.unsplash.com/photo-1506976785307-8732e854ad03?auto=format&fit=crop&w=1600&q=80');">
+    <div class="card">
+      <div class="eyebrow">Next Conversation</div>
+      <h2>为什么值得进入下一轮深度讨论</h2>
+      <p class="lead">当方向被看见之后，下一步才进入定制化设计，这样既更高效，也更符合高净值家庭的决策节奏。</p>
+      <div class="grid-3">
+        <div class="tile"><h3>教育</h3><p>进一步确认孩子教育切入时间、学校路径与家庭配合方式。</p></div>
+        <div class="tile"><h3>身份</h3><p>进一步梳理一家人的身份安排节奏与适配路径。</p></div>
+        <div class="tile"><h3>配置</h3><p>在方向确认后，再进入医疗、保险与资产配置工具的定制化阶段。</p></div>
+      </div>
+      <div class="big-quote">如果方向认同，下一步就不是“要不要做”，而是“怎么为这个家庭做得更合适”。</div>
+    </div>
+  </section>
+</body>
+</html>
