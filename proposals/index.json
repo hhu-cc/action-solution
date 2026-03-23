@@ -1,5 +1,14 @@
 [
   {
+    "proposal_id": "pb-20260323-liuzong-health",
+    "title": "刘总家庭健康保障方案",
+    "client_code": "20260323-liuzong-health",
+    "design_style": "executive-minimal",
+    "status": "current",
+    "path": "/proposals/current/pb-20260323-liuzong-health/",
+    "updated_at": "2026-03-23T03:25:51Z"
+  },
+  {
     "proposal_id": "pb-20260323-lizong-family",
     "title": "李总家庭保障正式方案",
     "client_code": "20260323-lizong-family",
